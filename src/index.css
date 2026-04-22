@@ -240,9 +240,8 @@ nav.nav-scrolled {
 }
 
 .function-logo img {
-  height: 240px; /* Increased from 160px per user request */
+  height: 240px;
   width: auto;
-  filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.5));
   margin-left: -10px;
 }
 
