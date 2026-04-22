@@ -142,6 +142,12 @@ nav.nav-scrolled {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+@media (max-width: 768px) {
+  nav, nav.nav-scrolled {
+    padding: 15px 20px; /* Reduced padding on mobile to keep logos anchored to edges */
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -189,7 +195,8 @@ nav.nav-scrolled {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: calc(85% + 140px) top;
+  object-position: 100% top; /* Anchor to absolute right */
+  transform: scale(1.1) translateX(12%); /* Scale up slightly and shift 12% to the right to clear space */
   opacity: 0.8;
   animation: ken-burns 20s infinite alternate ease-in-out;
 }
@@ -211,17 +218,21 @@ nav.nav-scrolled {
 }
 
 .hero-container {
-  max-width: 1200px;
-  margin: 0 auto;
   width: 100%;
-  padding: 150px 10% 50px calc(10% - 100px); /* Shifted 100px total to the left */
+  padding: 160px 10% 80px 10%; /* Matches Navbar padding for perfect alignment */
   position: relative;
   z-index: 10;
 }
 
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 120px 20px 60px 20px; /* Reduced padding on mobile to match Navbar */
+  }
+}
+
 
 .hero-content-wrapper {
-  max-width: 650px;
+  max-width: 480px; /* Further narrowed to ensure no overlap */
   text-align: left;
   display: flex;
   flex-direction: column;
