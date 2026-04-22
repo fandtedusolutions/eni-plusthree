@@ -236,8 +236,18 @@ nav.nav-scrolled {
 }
 
 .event-date, .event-time {
-  opacity: 0.8;
+  opacity: 0.9;
   font-family: 'Outfit';
+  white-space: nowrap;
+}
+
+.divider {
+  display: inline-block;
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 20px;
+  vertical-align: middle;
 }
 
 .event-location-link {
@@ -337,6 +347,13 @@ nav.nav-scrolled {
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 20px;
+}
+
+.vision-description {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--accent-grey);
+  font-size: 1.2rem;
 }
 
 /* Stall Details */
@@ -633,9 +650,13 @@ nav.nav-scrolled {
         .floor-plan-container {
             border-radius: 30px 30px 8px 8px;
             padding: 20px 10px 30px;
+            width: 95%; /* Take more width on small screens */
         }
         .aisle-arrows {
             gap: 2px;
+        }
+        .aisle-arrows span {
+            font-size: 0.6rem; /* Smaller arrows for mobile */
         }
     }
 }
@@ -746,16 +767,16 @@ footer {
     }
 
     #hero {
-        padding-top: 100px;
+        padding-top: 250px; /* Increased to push content below the face */
     }
     
     .hero-img {
         object-position: center top;
-        opacity: 0.4; /* Darken for better text readability on mobile */
+        opacity: 0.7; /* Increased opacity to make Gopinath's photo visible on mobile */
     }
     
     .hero-gradient-overlay {
-        background: linear-gradient(to bottom, #050505 20%, rgba(5, 5, 5, 0.7) 100%);
+        background: linear-gradient(to bottom, rgba(5, 5, 5, 0.2) 0%, rgba(5, 5, 5, 0.4) 40%, #050505 80%); /* Face is at top 40%, text starts after */
     }
     
     .hero-content-wrapper {
@@ -796,10 +817,19 @@ footer {
     .hero-event-info {
         padding: 20px;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .divider {
+        display: none; /* Hide vertical divider on mobile as we switch to column */
     }
     
     .event-location-link {
         font-size: 1.1rem;
+        margin-top: 5px;
     }
     
     .event-location-link::after {
@@ -808,6 +838,10 @@ footer {
 
     .big-text {
         font-size: 2.2rem;
+    }
+    
+    .vision-description {
+        font-size: 1rem;
     }
     
     .pricing-card.featured {
@@ -830,26 +864,36 @@ footer {
 
 @media (max-width: 480px) {
     .hero-main-text h1 {
-        font-size: 2rem;
+        font-size: 1.8rem; /* Slightly smaller for better fit */
+        line-height: 1.2;
     }
     
     .function-logo img {
-        height: 140px;
+        height: 120px;
     }
     
     .hero-event-info {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        padding: 15px;
     }
     
     .pricing-card {
-        padding: 35px 25px;
+        padding: 30px 20px;
     }
     
     .price {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
     
+    .contact-card {
+        padding: 30px 15px;
+    }
+    
+    .contact-numbers {
+        font-size: 1.8rem;
+    }
+
     footer {
-        padding: 40px 5%;
+        padding: 30px 5%;
     }
 }
