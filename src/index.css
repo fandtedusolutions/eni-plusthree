@@ -625,28 +625,18 @@ nav.nav-scrolled {
     display: block;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .floor-plan-container {
-        padding: 30px 15px 40px;
-        border-radius: 40px 40px 10px 10px;
-    }
-    .floor-grid {
-        /* Must match the SVG proportional layout */
-        grid-template-columns: 100fr 80fr 100fr 100fr 80fr 100fr;
-    }
-    .aisle-arrows span {
-        font-size: 0.8rem;
-    }
-    .aisle-label-top,
-    .aisle-label-bottom {
-        font-size: 0.4rem;
-    }
-    .stall-dims::before {
-        font-size: 0.38rem;
-    }
-    .arch-wrapper {
-        width: 100%;
+    /* Hide vertical dimension arrows on very small screens if they overlap */
+    @media (max-width: 480px) {
+        .stall-dims::after {
+            display: none;
+        }
+        .floor-plan-container {
+            border-radius: 30px 30px 8px 8px;
+            padding: 20px 10px 30px;
+        }
+        .aisle-arrows {
+            gap: 2px;
+        }
     }
 }
 
@@ -668,6 +658,31 @@ nav.nav-scrolled {
   color: var(--gold-primary);
   margin-right: 10px;
   font-weight: bold;
+}
+
+/* Contact */
+#contact {
+    text-align: center;
+}
+
+.contact-card {
+    border: 1px solid var(--gold-primary);
+    padding: 60px 80px;
+    border-radius: 20px;
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.02);
+    backdrop-filter: blur(10px);
+}
+
+.contact-numbers {
+    font-size: 3.5rem;
+    font-weight: 800;
+    font-family: 'Outfit';
+    border-bottom: 2px solid var(--gold-primary);
+    display: inline-block;
+    line-height: 1.4;
+    color: var(--gold-primary);
+    letter-spacing: 2px;
 }
 
 /* Footer */
@@ -694,17 +709,147 @@ footer {
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
+/* ============================================
+   RESPONSIVE OVERRIDES (Comprehensive)
+   ============================================ */
+
+@media (max-width: 1024px) {
+    section {
+        padding: 80px 5%;
+    }
+    
+    .hero-container {
+        padding-left: 5%;
+    }
+    
+    .hero-main-text h1 {
+        font-size: 3.2rem;
+    }
+}
+
 @media (max-width: 768px) {
-  #hero {
-    flex-direction: column-reverse;
-    text-align: center;
-    padding-top: 120px;
-  }
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-  .hero-image img {
-    max-width: 100%;
-    margin-bottom: 40px;
-  }
+    nav {
+        padding: 15px 5%;
+    }
+    
+    .logo img {
+        height: 40px !important;
+    }
+    
+    .partner-logo img {
+        height: 35px !important;
+    }
+    
+    .partner-logo {
+        gap: 10px !important;
+        padding-left: 10px !important;
+    }
+
+    #hero {
+        padding-top: 100px;
+    }
+    
+    .hero-img {
+        object-position: center top;
+        opacity: 0.4; /* Darken for better text readability on mobile */
+    }
+    
+    .hero-gradient-overlay {
+        background: linear-gradient(to bottom, #050505 20%, rgba(5, 5, 5, 0.7) 100%);
+    }
+    
+    .hero-content-wrapper {
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .function-logo img {
+        height: 180px;
+        margin-left: 0;
+    }
+    
+    .malayalam-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-main-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-details {
+        font-size: 1rem;
+    }
+    
+    .chief-guest-badge {
+        border-left: none;
+        border-bottom: 2px solid var(--gold-primary);
+        padding-left: 0;
+        padding-bottom: 15px;
+        display: inline-block;
+    }
+    
+    .guest-name {
+        font-size: 1.6rem;
+    }
+    
+    .hero-event-info {
+        padding: 20px;
+        width: 100%;
+    }
+    
+    .event-location-link {
+        font-size: 1.1rem;
+    }
+    
+    .event-location-link::after {
+        display: none; /* Hide the arrow on mobile */
+    }
+
+    .big-text {
+        font-size: 2.2rem;
+    }
+    
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+    
+    .pricing-container {
+        gap: 20px;
+    }
+
+    .contact-card {
+        padding: 40px 20px;
+        width: 100%;
+    }
+    
+    .contact-numbers {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-main-text h1 {
+        font-size: 2rem;
+    }
+    
+    .function-logo img {
+        height: 140px;
+    }
+    
+    .hero-event-info {
+        font-size: 0.9rem;
+    }
+    
+    .pricing-card {
+        padding: 35px 25px;
+    }
+    
+    .price {
+        font-size: 2.2rem;
+    }
+    
+    footer {
+        padding: 40px 5%;
+    }
 }
