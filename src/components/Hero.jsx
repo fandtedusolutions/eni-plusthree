@@ -23,7 +23,11 @@ const Hero = () => {
                     transition={{ duration: 1, ease: [0.2, 0.8, 0.2, 1] }}
                 >
                     <div className="function-logo">
-                        <img src={ini3Logo} alt="Ini+3 Name" />
+                        <img 
+                            src={ini3Logo} 
+                            alt="Ini+3 Name" 
+                            loading="lazy" 
+                        />
                     </div>
                     <div className="malayalam-title gold-gradient">ഞങ്ങളും മിടുക്കരാണ്</div>
                     
