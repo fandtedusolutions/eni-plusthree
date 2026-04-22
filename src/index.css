@@ -709,9 +709,9 @@ nav.nav-scrolled {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 20px; /* Increased from 6px for more space */
     flex: 1;
-    justify-content: center;
+    justify-content: space-evenly; /* Better distribution */
 }
 
 .aisle-arrows span {
@@ -731,12 +731,13 @@ nav.nav-scrolled {
             border-radius: 30px 30px 8px 8px;
             padding: 20px 10px 30px;
             width: 95%; /* Take more width on small screens */
+            margin: 0 auto; /* Ensures centered container */
         }
         .aisle-arrows {
-            gap: 2px;
+            gap: 12px; /* Increased from 2px for better spacing on mobile */
         }
         .aisle-arrows span {
-            font-size: 0.6rem; /* Smaller arrows for mobile */
+            font-size: 0.8rem; /* Slightly larger for better visibility */
         }
     }
 }

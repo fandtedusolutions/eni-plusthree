@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ini3Logo from '../assets/ini+3.png';
+import ini3Logo from '../assets/eni+3.png';
 
 const Hero = () => {
     return (

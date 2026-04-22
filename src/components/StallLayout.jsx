@@ -56,7 +56,7 @@ const StallLayout = () => {
                 <div key={targetCol} className="aisle-col">
                     <div className="aisle-label-top">{aisle.reverse ? 'ENTRY' : 'EXIT'}</div>
                     <div className={`aisle-arrows ${aisle.reverse ? 'down-arrows' : ''}`}>
-                        {[...Array(7)].map((_, i) => <span key={i}>{aisle.arrows}</span>)}
+                        {[...Array(5)].map((_, i) => <span key={i}>{aisle.arrows}</span>)}
                     </div>
                     <div className="aisle-label-bottom">{aisle.reverse ? 'EXIT' : 'ENTRY'}</div>
                 </div>
