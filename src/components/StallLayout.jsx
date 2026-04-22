@@ -46,6 +46,27 @@ const StallLayout = () => {
         { col: 6, type: 'reserved', text: 'Reserved' }
     ];
 
+    // Animation Variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.04,
+                delayChildren: 0.1
+            }
+        }
+    };
+
+    const aisleVariants = {
+        hidden: { opacity: 0, scaleY: 0 },
+        visible: { 
+            opacity: 1, 
+            scaleY: 1,
+            transition: { duration: 0.8, ease: "circOut" }
+        }
+    };
+
     // Helper to render columns
     const renderCol = (targetCol) => {
         const colItems = stalls.filter(s => s.col === targetCol);
@@ -53,20 +74,27 @@ const StallLayout = () => {
         if (colItems[0].type === 'aisle') {
             const aisle = colItems[0];
             return (
-                <div key={targetCol} className="aisle-col">
+                <motion.div 
+                    key={targetCol} 
+                    className="aisle-col" 
+                    variants={aisleVariants}
+                >
                     <div className="aisle-label-top">{aisle.reverse ? 'ENTRY' : 'EXIT'}</div>
-                    <div className={`aisle-arrows ${aisle.reverse ? 'down-arrows' : ''}`}>
+                    <div className={`aisle-arrows ${aisle.reverse ? 'down-arrows' : ''}`} style={{ color: 'rgba(0,0,0,0.4)', fontWeight: 'bold' }}>
                         {[...Array(5)].map((_, i) => <span key={i}>{aisle.arrows}</span>)}
                     </div>
                     <div className="aisle-label-bottom">{aisle.reverse ? 'EXIT' : 'ENTRY'}</div>
-                </div>
+                </motion.div>
             );
         }
 
         return (
-            <div key={targetCol} className="stall-col">
+            <motion.div key={targetCol} className="stall-col">
                 {colItems.map((item, idx) => (
-                    <div key={idx} className={`stall-cell ${item.type === 'reserved' ? 'reserved' : ''}`}>
+                    <div 
+                        key={idx} 
+                        className={`stall-cell ${item.type === 'reserved' ? 'reserved' : ''}`}
+                    >
                         <div className={`stall-inner ${item.type === 'reserved' ? 'reserved-inner' : ''}`}>
                             {item.type === 'stall' ? (
                                 <>
@@ -79,7 +107,7 @@ const StallLayout = () => {
                         </div>
                     </div>
                 ))}
-            </div>
+            </motion.div>
         );
     };
 
@@ -88,8 +116,8 @@ const StallLayout = () => {
             <motion.h2 
                 style={{ textAlign: 'center', marginBottom: '20px' }} 
                 className="gold-gradient"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
             >
                 STALL ILLUSTRATION CONCEPT
@@ -100,27 +128,34 @@ const StallLayout = () => {
             
             <motion.div 
                 className="floor-plan-container"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 1, ease: [0.2, 0.8, 0.2, 1] }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.1 }}
+                variants={containerVariants}
             >
                 <div className="floor-plan-inner">
-                    <div className="arch-wrapper">
+                    <motion.div 
+                        className="arch-wrapper"
+                        variants={{
+                            hidden: { opacity: 0, scale: 0.98 },
+                            visible: { opacity: 1, scale: 1 }
+                        }}
+                        transition={{ duration: 1 }}
+                    >
                         <svg viewBox="0 0 560 200" className="arch-svg" xmlns="http://www.w3.org/2000/svg">
-                            <line x1="1" y1="198.5" x2="100" y2="198.5" stroke="#1a1a1a" strokeWidth="3" />
-                            <line x1="180" y1="198.5" x2="380" y2="198.5" stroke="#1a1a1a" strokeWidth="3" />
-                            <line x1="460" y1="198.5" x2="559" y2="198.5" stroke="#1a1a1a" strokeWidth="3" />
+                            <line x1="1" y1="198.5" x2="100" y2="198.5" stroke="#2D3436" strokeWidth="3" />
+                            <line x1="180" y1="198.5" x2="380" y2="198.5" stroke="#2D3436" strokeWidth="3" />
+                            <line x1="460" y1="198.5" x2="559" y2="198.5" stroke="#2D3436" strokeWidth="3" />
                             
-                            <path d="M 100 198.5 L 100 180 A 180 180 0 0 1 460 180 L 460 198.5" fill="none" stroke="#1a1a1a" strokeWidth="3" />
-                            <path d="M 180 198.5 L 180 180 A 100 100 0 0 1 380 180 L 380 198.5" fill="none" stroke="#1a1a1a" strokeWidth="3" />
-                            <path d="M 140 198.5 L 140 180 A 140 140 0 0 1 420 180 L 420 198.5" fill="none" stroke="#1a1a1a" strokeWidth="2.5" className="flow-path" />
+                            <path d="M 100 198.5 L 100 180 A 180 180 0 0 1 460 180 L 460 198.5" fill="none" stroke="#2D3436" strokeWidth="3" />
+                            <path d="M 180 198.5 L 180 180 A 100 100 0 0 1 380 180 L 380 198.5" fill="none" stroke="#2D3436" strokeWidth="3" />
+                            <path d="M 140 198.5 L 140 180 A 140 140 0 0 1 420 180 L 420 198.5" fill="none" stroke="rgba(45, 52, 54, 0.2)" strokeWidth="2.5" className="flow-path" />
                             
-                            <polygon points="0,-12 -8,8 8,8" fill="#1a1a1a" transform="translate(181, 81) rotate(45)"/>
-                            <polygon points="0,-12 -8,8 8,8" fill="#1a1a1a" transform="translate(320, 46) rotate(105)"/>
-                            <polygon points="0,-12 -8,8 8,8" fill="#1a1a1a" transform="translate(407, 120) rotate(155)"/>
+                            <polygon points="0,-12 -8,8 8,8" fill="#2D3436" transform="translate(181, 81) rotate(45)"/>
+                            <polygon points="0,-12 -8,8 8,8" fill="#2D3436" transform="translate(320, 46) rotate(105)"/>
+                            <polygon points="0,-12 -8,8 8,8" fill="#2D3436" transform="translate(407, 120) rotate(155)"/>
                         </svg>
-                    </div>
+                    </motion.div>
 
                     <div className="floor-grid">
                         {[1, 2, 3, 4, 5, 6].map(col => renderCol(col))}
