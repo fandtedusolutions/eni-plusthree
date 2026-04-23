@@ -49,15 +49,19 @@ const Packages = () => {
                     onClick={() => setSelectedTier('sapphire')}
                     style={{ cursor: 'pointer' }}
                 >
-                    <h3>Sapphire Tier</h3>
+                    <div style={{ marginBottom: '15px', fontSize: '1.3rem', fontWeight: '800', letterSpacing: '1px' }} className="gold-gradient">SAPPHIRE TIER</div>
                     <span className="price gold-gradient">₹1,00,000</span>
                     <ul className="features-list">
-                        <li>Led Promotion</li>
-                        <li>All Required Amenities Provided</li>
-                        <li>Qualified Lead Provided</li>
-                        <li>Digital Marketing Services</li>
-                        <li>Brand Promotion</li>
+                        <li>1 Promotion Videos</li>
+                        <li>Unlimited Posters - 1 Months</li>
+                        <li>Live Stall Setup</li>
+                        <li>Qualified Leads</li>
+                        <li>Stall Amenities</li>
                     </ul>
+                    <div className="news-support">
+                        <strong>News Support - Mathrubhumi daily Malappuram</strong>
+                        <p>Once for a year</p>
+                    </div>
                 </motion.div>
 
                 {/* Ruby (Featured) */}
@@ -67,20 +71,26 @@ const Packages = () => {
                     onClick={() => setSelectedTier('ruby')}
                     style={{ cursor: 'pointer' }}
                 >
-                    {selectedTier === 'ruby' && (
-                        <div style={{ position: 'absolute', top: '15px', right: '15px', background: 'var(--yellow-accent)', color: '#000', padding: '5px 15px', borderRadius: '20px', fontSize: '0.7rem', fontWeight: '900' }}>BEST VALUE</div>
-                    )}
-                    <h3>Ruby Tier</h3>
-                    <span className="price gold-gradient">₹2,00,000</span>
+                    <div style={{ marginBottom: '15px', fontSize: '1.3rem', fontWeight: '800', letterSpacing: '1px' }} className="gold-gradient">RUBY TIER</div>
+                    
+                    <span className="price gold-gradient">₹3,00,000</span>
                     <ul className="features-list">
-                        <li>Led Wall Promotion</li>
+                        <li>3 Promotion Videos</li>
+                        <li>1 Cinematic Ad Direction (4K)</li>
+                        <li>LED Wall Display Promotion</li>
+                        <li>Local SEO</li>
+                        <li>Sales Team Training - 2 Months</li>
+                        <li>Unlimited Posters - 3 Months</li>
+                        <li>100K+ Influencer Promotion</li>
                         <li>Live Stall Setup</li>
-                        <li>All Required Amenities Provided</li>
-                        <li>Qualified Lead Provided</li>
-                        <li>10 Minutes On-Stage Presentation</li>
-                        <li>Digital Marketing Services</li>
-                        <li>Brand Promotion</li>
+                        <li>5 Min On-Stage Presentation</li>
+                        <li>Qualified Leads</li>
+                        <li>Stall Amenities</li>
                     </ul>
+                    <div className="news-support">
+                        <strong>News Support - Mathrubhumi daily Malappuram</strong>
+                        <p>Once for a year</p>
+                    </div>
                 </motion.div>
 
                 {/* Emerald */}
@@ -90,26 +100,32 @@ const Packages = () => {
                     onClick={() => setSelectedTier('emerald')}
                     style={{ cursor: 'pointer' }}
                 >
-                    <h3>Emerald Tier</h3>
-                    <span className="price gold-gradient">₹1,50,000</span>
+                    <div style={{ marginBottom: '15px', fontSize: '1.3rem', fontWeight: '800', letterSpacing: '1px' }} className="gold-gradient">EMERALD TIER</div>
+                    <span className="price gold-gradient">₹2,00,000</span>
                     <ul className="features-list">
-                        <li>Led Wall Promotion</li>
-                        <li>All Required Amenities Provided</li>
-                        <li>Qualified Lead Provided</li>
-                        <li>5 Minutes On-Stage Presentation</li>
-                        <li>Digital Marketing Services</li>
-                        <li>Brand Promotion</li>
+                        <li>2 Promotion Videos</li>
+                        <li>Local SEO</li>
+                        <li>Sales Team Training - 1 Months</li>
+                        <li>Unlimited Posters - 2 Months</li>
+                        <li>50K+ Influencer Promotion</li>
+                        <li>Live Stall Setup</li>
+                        <li>Qualified Leads</li>
+                        <li>Stall Amenities</li>
                     </ul>
+                    <div className="news-support">
+                        <strong>News Support - Mathrubhumi daily Malappuram</strong>
+                        <p>Once for a year</p>
+                    </div>
                 </motion.div>
             </motion.div>
 
             <motion.div 
-                style={{ textAlign: 'center', marginTop: '40px', color: 'var(--accent-grey)', fontWeight: '600', letterSpacing: '1px' }}
+                style={{ textAlign: 'center', marginTop: '60px', color: 'var(--accent-grey)', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
             >
-                Target Audience. Age Limit 18 - 25
+                Target Audience. Age Limit 17 - 25
             </motion.div>
         </section>
     );

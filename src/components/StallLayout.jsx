@@ -89,13 +89,13 @@ const StallLayout = () => {
         }
 
         return (
-            <motion.div key={targetCol} className="stall-col">
+            <div key={targetCol} className="stall-col">
                 {colItems.map((item, idx) => (
                     <div 
                         key={idx} 
                         className={`stall-cell ${item.type === 'reserved' ? 'reserved' : ''}`}
                     >
-                        <div className={`stall-inner ${item.type === 'reserved' ? 'reserved-inner' : ''}`}>
+                        <div className="stall-inner">
                             {item.type === 'stall' ? (
                                 <>
                                     <span className="stall-num">{item.num}</span>
@@ -107,7 +107,7 @@ const StallLayout = () => {
                         </div>
                     </div>
                 ))}
-            </motion.div>
+            </div>
         );
     };
 
@@ -133,14 +133,15 @@ const StallLayout = () => {
                 viewport={{ once: false, amount: 0.1 }}
                 variants={containerVariants}
             >
-                <div className="floor-plan-inner">
+                <div className="floor-plan-inner" style={{ background: 'transparent', overflow: 'visible' }}>
                     <motion.div 
-                        className="arch-wrapper"
+                        className="arch-wrapper arch-3d"
                         variants={{
-                            hidden: { opacity: 0, scale: 0.98 },
-                            visible: { opacity: 1, scale: 1 }
+                            hidden: { opacity: 0, scale: 0.9, y: 20 },
+                            visible: { opacity: 1, scale: 1, y: 0 }
                         }}
-                        transition={{ duration: 1 }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        style={{ transformStyle: 'preserve-3d', transformOrigin: 'center' }}
                     >
                         <svg viewBox="0 0 560 200" className="arch-svg" xmlns="http://www.w3.org/2000/svg">
                             <line x1="1" y1="198.5" x2="100" y2="198.5" stroke="#2D3436" strokeWidth="3" />
