@@ -809,6 +809,36 @@ nav.nav-scrolled {
   /* Hide dimensions in reserved stalls */
 }
 
+.stall-cell.blank-cell {
+  background: rgba(113, 113, 122, 0.1) !important;
+  background-image: repeating-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.05) 3px,
+      transparent 3px,
+      transparent 8px) !important;
+  pointer-events: none;
+  box-shadow: none !important;
+  transform: none !important;
+  border: 2px solid #71717a;
+}
+
+.nill-text {
+  font-size: 0.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  background: #71717a;
+  padding: 3px 12px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Outfit';
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stall-cell.blank-cell .stall-inner {
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
 
 
 /* Aisle columns */

@@ -25,7 +25,7 @@ const StallLayout = () => {
         { col: 3, type: 'reserved', num: 14, text: 'BOOKED' },
 
         // Column 4: Center-Right
-        { col: 4, type: 'stall', num: 14, dims: true },
+        { col: 4, type: 'blank' },
         { col: 4, type: 'stall', num: 15, dims: true },
         { col: 4, type: 'stall', num: 16, dims: true },
         { col: 4, type: 'stall', num: 17, dims: true },
@@ -93,7 +93,7 @@ const StallLayout = () => {
                 {colItems.map((item, idx) => (
                     <div
                         key={idx}
-                        className={`stall-cell ${item.type === 'reserved' ? 'reserved' : ''}`}
+                        className={`stall-cell ${item.type === 'reserved' ? 'reserved' : ''} ${item.type === 'blank' ? 'blank-cell' : ''}`}
                     >
                         <div className="stall-inner">
                             {item.type === 'stall' ? (
@@ -101,12 +101,16 @@ const StallLayout = () => {
                                     <span className="stall-num">{item.num}</span>
                                     <div className="stall-dims">3.5m × 3m</div>
                                 </>
-                            ) : (
+                            ) : item.type === 'reserved' ? (
                                 <div className="reserved-inner">
                                     <span className="stall-num">{item.num}</span>
                                     <span className="reserved-text">RESERVED</span>
                                 </div>
-                            )}
+                            ) : item.type === 'blank' ? (
+                                <div className="reserved-inner">
+                                    <span className="nill-text">NILL</span>
+                                </div>
+                            ) : null}
                         </div>
                     </div>
                 ))}
