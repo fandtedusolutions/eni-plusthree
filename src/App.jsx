@@ -8,26 +8,10 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   return (
     <div className="app-container">
-      {/* Premium Cursor Glow */}
-      <div 
-        className="cursor-glow" 
-        style={{ 
-          left: `${mousePos.x}px`, 
-          top: `${mousePos.y}px` 
-        }}
-      ></div>
+      {/* Cinematic Grain Overlay */}
+      <div className="grain-overlay"></div>
 
       {/* Cinematic Grain Overlay */}
       <div className="grain-overlay"></div>

@@ -16,11 +16,12 @@ const Navbar = () => {
     return (
         <nav className={scrolled ? 'nav-scrolled' : ''}>
             <div className="logo">
-                <img src={natdemyLogo} alt="Natdemy Logo" style={{ height: '80px', filter: 'brightness(0) invert(1)' }} />
+                <img src={natdemyLogo} alt="Natdemy Logo" style={{ height: '50px', filter: 'brightness(0) invert(1)' }} />
             </div>
+
             <div className="partner-logo" style={{ display: 'flex', alignItems: 'center', gap: '20px', borderLeft: '1px solid rgba(255,255,255,0.1)', paddingLeft: '20px' }}>
-                <div style={{ color: '#888', fontSize: '0.7rem', letterSpacing: '1px', fontWeight: '700' }}>MEDIA<br />PARTNER</div>
-                <img src={mathrabumiLogo} alt="Mathrabhumi Logo" style={{ height: '55px', filter: 'brightness(0) invert(1)' }} />
+                <div style={{ color: '#888', fontSize: '0.6rem', letterSpacing: '1px', fontWeight: '700', lineHeight: '1.2' }}>MEDIA<br />PARTNER</div>
+                <img src={mathrabumiLogo} alt="Mathrabhumi Logo" style={{ height: '40px', filter: 'brightness(0) invert(1)' }} />
             </div>
         </nav>
     );
